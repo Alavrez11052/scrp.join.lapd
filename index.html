@@ -1,82 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>LAPD Recruitment | Southern California Roleplay</title>
 
-<link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" href="favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="styles.css">
-</head>
 
+</head>
 <body>
 
-<header>
-    <img src="favicon.png" class="seal" alt="LAPD Seal">
+<nav class="navbar">
 
-    <h1>Los Angeles Police Department</h1>
-    <p>Southern California Roleplay Recruitment Portal</p>
-</header>
+    <div class="logo-area">
+        <img src="favicon.png" alt="LAPD Seal">
+        <div>
+            <h3>Los Angeles Police Department</h3>
+            <span>Southern California Roleplay</span>
+        </div>
+    </div>
 
-<nav>
-    <a href="index.html">Home</a>
-    <a href="sworn.html">Sworn Officers</a>
-    <a href="communications.html">Communications</a>
-    <a href="training.html">Training Process</a>
-    <a href="specialized-divisions.html">Specialized Divisions</a>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sworn.html">Sworn Officer</a></li>
+        <li><a href="communications.html">Communications</a></li>
+        <li><a href="training.html">Training</a></li>
+        <li><a href="divisions.html">Divisions</a></li>
+    </ul>
+
+    <a href="https://discord.gg/8QvbBnqUuB" target="_blank" class="apply-btn">
+        Apply Today
+    </a>
+
 </nav>
 
 <section class="hero">
-    <h2>Join the Los Angeles Police Department</h2>
 
-    <p>
-        The Los Angeles Police Department serves as one of the most respected law enforcement
-        agencies in Southern California Roleplay.
-    </p>
+    <div class="overlay"></div>
 
-    <p>
-        Whether you're interested in patrolling the streets of Los Angeles,
-        coordinating emergency communications, investigating major crimes,
-        or serving in specialized units, there is a place for you within LAPD.
-    </p>
+    <div class="hero-content">
 
-    <a class="apply-btn" href="https://discord.gg/8QvbBnqUuB" target="_blank">
-        Apply Today
-    </a>
+        <p class="subtitle">LOS ANGELES POLICE DEPARTMENT</p>
+
+        <h1>
+            Serve With Honor.<br>
+            Lead With Integrity.
+        </h1>
+
+        <p class="hero-text">
+            Join one of Southern California Roleplay's most professional
+            law enforcement agencies. Patrol the streets of Los Angeles,
+            investigate major crimes, support tactical operations,
+            and help protect our community.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="https://discord.gg/8QvbBnqUuB" target="_blank" class="primary-btn">
+                Apply Now
+            </a>
+
+            <a href="divisions.html" class="secondary-btn">
+                Explore Divisions
+            </a>
+        </div>
+
+    </div>
+
 </section>
 
-<section class="cards">
+<section class="stats">
 
-<div class="card">
-<h3>Sworn Officers</h3>
-<p>Protect and serve the citizens of Los Angeles.</p>
-<a href="sworn.html">Learn More</a>
-</div>
+    <div class="stat-card">
+        <h2 class="counter" data-target="250">0</h2>
+        <p>Department Members</p>
+    </div>
 
-<div class="card">
-<h3>Communications</h3>
-<p>Become the lifeline between officers and the public.</p>
-<a href="communications.html">Learn More</a>
-</div>
+    <div class="stat-card">
+        <h2 class="counter" data-target="7">0</h2>
+        <p>Specialized Divisions</p>
+    </div>
 
-<div class="card">
-<h3>Training Bureau</h3>
-<p>View our structured training program.</p>
-<a href="training.html">Learn More</a>
-</div>
+    <div class="stat-card">
+        <h2 class="counter" data-target="24">0</h2>
+        <p>Hour Coverage</p>
+    </div>
 
-<div class="card">
-<h3>Specialized Divisions</h3>
-<p>Explore opportunities beyond patrol.</p>
-<a href="specialized-divisions.html">Learn More</a>
-</div>
+    <div class="stat-card">
+        <h2 class="counter" data-target="100">0</h2>
+        <p>% Professionalism</p>
+    </div>
+
+</section>
+
+<section class="careers">
+
+    <div class="section-title">
+        <h2>Career Opportunities</h2>
+        <p>Choose your path within the department.</p>
+    </div>
+
+    <div class="career-grid">
+
+        <div class="career-card">
+            <h3>Sworn Officer</h3>
+            <p>
+                Protect and serve the citizens of Los Angeles through
+                proactive policing and community engagement.
+            </p>
+            <a href="sworn.html">Learn More →</a>
+        </div>
+
+        <div class="career-card">
+            <h3>Communications</h3>
+            <p>
+                Become the critical link between emergency callers and
+                field personnel.
+            </p>
+            <a href="communications.html">Learn More →</a>
+        </div>
+
+        <div class="career-card">
+            <h3>Specialized Divisions</h3>
+            <p>
+                Pursue opportunities in Metro, Detectives, Air Support,
+                Gang Enforcement, and more.
+            </p>
+            <a href="divisions.html">Learn More →</a>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="training-preview">
+
+    <div class="section-title">
+        <h2>Your Training Journey</h2>
+    </div>
+
+    <div class="timeline">
+
+        <div class="timeline-item">Academy Exam</div>
+        <div class="timeline-item">Ride Along I</div>
+        <div class="timeline-item">Ride Along II</div>
+        <div class="timeline-item">Final Evaluation</div>
+        <div class="timeline-item">Solo Patrol</div>
+        <div class="timeline-item">Patrol Officer II</div>
+
+    </div>
+
+</section>
+
+<section class="cta">
+
+    <h2>Your Community Needs You.</h2>
+
+    <p>
+        Start your career with the Los Angeles Police Department today.
+    </p>
+
+    <a href="https://discord.gg/8QvbBnqUuB" target="_blank" class="primary-btn">
+        Join LAPD
+    </a>
 
 </section>
 
 <footer>
-Southern California Roleplay | Los Angeles Police Department Recruitment
+
+    <img src="favicon.png" alt="LAPD Seal">
+
+    <h3>Los Angeles Police Department</h3>
+
+    <p>
+        Southern California Roleplay Recruitment Portal
+    </p>
+
 </footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
