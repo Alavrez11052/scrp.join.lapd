@@ -1,148 +1,397 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Communications Division – LAPD Recruitment</title>
-  <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/a/aa/Seal_of_the_Los_Angeles_Police_Department.png" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Communications Division - LAPD Recruitment</title>
+    <link rel="icon" type="image/png" href="https://imgs.search.brave.com/Uksy3JBQ6Fc6BLzeH83DbgczmPlGqqbIhVcjA9YMeFY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9h/L2FhL1NlYWxfb2Zf/dGhlX0xvc19Bbmdl/bGVzX1BvbGljZV9E/ZXBhcnRtZW50LnBu/Zw">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #003366 0%, #004d99 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        .apply-btn {
+            background-color: #dc3545 !important;
+            padding: 10px 20px !important;
+            border-radius: 5px !important;
+        }
+
+        .apply-btn:hover {
+            background-color: #c82333 !important;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .intro {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+            border-left: 5px solid #0066cc;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #003366;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #0066cc;
+        }
+
+        .responsibilities {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .responsibility-item {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        .responsibility-item:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transform: translateX(5px);
+        }
+
+        .responsibility-icon {
+            font-size: 2.5rem;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .responsibility-content h3 {
+            color: #003366;
+            margin-bottom: 8px;
+        }
+
+        .responsibility-content p {
+            color: #666;
+        }
+
+        .qualifications {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 35px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        .qualification-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 18px;
+            align-items: flex-start;
+        }
+
+        .qualification-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .qualification-item::before {
+            content: '★';
+            color: #0066cc;
+            font-weight: bold;
+            font-size: 1.3rem;
+            min-width: 30px;
+        }
+
+        .qualification-item p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .why-comms {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 35px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            border-left: 5px solid #0066cc;
+        }
+
+        .why-comms h3 {
+            color: #003366;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .why-comms p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background-color: #0066cc;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #0052a3;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,102,204,0.3);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: #0066cc;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f0f0f0;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .responsibility-item {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <div class="badge-strip">
-    <p>🚔 Southern California Roleplay — Los Angeles Police Department Recruitment</p>
-  </div>
-
-  <nav>
-    <div class="nav-inner">
-      <a class="nav-brand" href="index.html">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Seal_of_the_Los_Angeles_Police_Department.png" alt="LAPD Seal" />
-        <div class="nav-brand-text">
-          <span class="dept">LAPD</span>
-          <span class="sub">Recruitment Portal</span>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://imgs.search.brave.com/Uksy3JBQ6Fc6BLzeH83DbgczmPlGqqbIhVcjA9YMeFY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9h/L2FhL1NlYWxfb2Zf/dGhlX0xvc19Bbmdl/bGVzX1BvbGljZV9E/ZXBhcnRtZW50LnBu/Zw" alt="LAPD Seal">
+                <span>LAPD</span>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="sworn-officer.html">Sworn Officer</a>
+                <a href="communications.html">Communications</a>
+                <a href="training.html">Training Process</a>
+                <a href="divisions.html">Divisions</a>
+                <a href="https://discord.gg/8QvbBnqUuB" class="apply-btn" target="_blank">Apply Now</a>
+            </nav>
         </div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="sworn-officer.html">Sworn Officer</a></li>
-        <li><a href="communications.html" class="active">Communications</a></li>
-        <li><a href="training.html">Training</a></li>
-        <li><a href="divisions.html">Divisions</a></li>
-        <li><a href="https://discord.gg/8QvbBnqUuB" target="_blank">Apply</a></li>
-      </ul>
+    </header>
+
+    <section class="hero">
+        <h1>Communications Division</h1>
+        <p>Police Officer not for you? Try our Communications Division!</p>
+    </section>
+
+    <div class="content">
+        <div class="intro">
+            <p>Do you have what it takes to be the lifeline between officers in the field and the community we serve? The Los Angeles Police Department Communications Division is looking for dedicated individuals to step into one of the most important roles in public safety. Every second counts—and you'll be the voice that makes the difference.</p>
+        </div>
+
+        <section class="section">
+            <h2 class="section-title">As a Communications Dispatcher, You Will</h2>
+            <div class="responsibilities">
+                <div class="responsibility-item">
+                    <div class="responsibility-icon">📞</div>
+                    <div class="responsibility-content">
+                        <h3>Serve as the First Point of Contact</h3>
+                        <p>Answer emergency calls and be the critical link between citizens in crisis and the resources they need.</p>
+                    </div>
+                </div>
+                <div class="responsibility-item">
+                    <div class="responsibility-icon">🚨</div>
+                    <div class="responsibility-content">
+                        <h3>Coordinate Police Response</h3>
+                        <p>Manage dispatch operations for incidents across Los Angeles, ensuring rapid and efficient officer deployment.</p>
+                    </div>
+                </div>
+                <div class="responsibility-item">
+                    <div class="responsibility-icon">📡</div>
+                    <div class="responsibility-content">
+                        <h3>Support Field Officers</h3>
+                        <p>Provide critical information in real time, keeping officers informed and safe during operations.</p>
+                    </div>
+                </div>
+                <div class="responsibility-item">
+                    <div class="responsibility-icon">💪</div>
+                    <div class="responsibility-content">
+                        <h3>Remain Calm Under Pressure</h3>
+                        <p>Handle high-stress situations with professionalism, helping those in need while maintaining composure.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">What We're Looking For</h2>
+            <div class="qualifications">
+                <div class="qualification-item">
+                    <p><strong>Clear and Professional Communication Skills</strong> - Ability to convey information clearly and concisely in critical situations.</p>
+                </div>
+                <div class="qualification-item">
+                    <p><strong>Ability to Multitask in High-Pressure Situations</strong> - Manage multiple calls, radio communications, and computer systems simultaneously.</p>
+                </div>
+                <div class="qualification-item">
+                    <p><strong>Strong Problem-Solving and Decision-Making Abilities</strong> - Make quick, accurate decisions that impact officer and public safety.</p>
+                </div>
+                <div class="qualification-item">
+                    <p><strong>Commitment to Teamwork and Community Safety</strong> - Work collaboratively with officers and the community to serve Los Angeles.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="why-comms">
+                <h3>☎️ Why Communications?</h3>
+                <p>Every second counts—and you'll be the voice that makes the difference. The LAPD Communications Division is the backbone of our operations, ensuring officers and the public are connected when it matters most. As a dispatcher, you'll play a vital role in saving lives and protecting our community. You won't be on the frontlines, but you'll be supporting those who are. Your decisions and actions directly impact the safety of Los Angeles. Join a team of dedicated professionals who understand the importance of communication, coordination, and care.</p>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>☎️ Answer the Call</h2>
+            <p>Join LAPD Communications today and become the voice that saves lives.</p>
+            <a href="https://discord.gg/8QvbBnqUuB" class="btn btn-secondary" target="_blank">Apply to Communications</a>
+        </section>
     </div>
-  </nav>
 
-  <div class="page-header">
-    <div class="eyebrow">Alternative Pathway</div>
-    <h1>Communications Division</h1>
-  </div>
-
-  <!-- INTRO -->
-  <section style="background:var(--white);padding:0;">
-    <div class="section">
-      <div class="two-col">
-        <div>
-          <div class="section-title">Not a Patrol Officer?</div>
-          <div class="section-line"></div>
-          <p style="font-size:16px;line-height:1.8;color:var(--text-muted);margin-bottom:18px;">
-            Police Officer not for you? Try our Communications Division! Do you have what it takes to be the lifeline between officers in the field and the community we serve?
-          </p>
-          <p style="font-size:16px;line-height:1.8;color:var(--text-muted);margin-bottom:18px;">
-            The Los Angeles Police Department Communications Division is looking for dedicated individuals to step into one of the most important roles in public safety.
-          </p>
-          <p style="font-size:16px;line-height:1.8;color:var(--text-muted);">
-            Every second counts — and you'll be the voice that makes the difference. The LAPD Communications Division is the backbone of our operations, ensuring officers and the public are connected when it matters most.
-          </p>
-          <div style="margin-top:32px;">
-            <a href="https://discord.gg/8QvbBnqUuB" class="btn" target="_blank">☎️ Join Communications</a>
-          </div>
-        </div>
-        <div>
-          <div class="info-box">
-            <h3>As a Dispatcher, You Will:</h3>
-            <ul>
-              <li>Serve as the first point of contact for emergencies</li>
-              <li>Coordinate police response to incidents across the city</li>
-              <li>Support field officers with critical information in real time</li>
-              <li>Remain calm under pressure while helping those in need</li>
-            </ul>
-          </div>
-          <div style="margin-top:16px;background:var(--off-white);border:1px solid var(--light-gray);border-left:4px solid var(--gold);padding:22px 24px;border-radius:2px;">
-            <p style="font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:var(--navy);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">The Backbone of the LAPD</p>
-            <p style="font-size:14px;color:var(--text-muted);line-height:1.6;">Without dispatchers, officers go blind. Your role directly saves lives and keeps every officer on the street safe.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHAT WE LOOK FOR -->
-  <section style="background:var(--off-white);padding:0;">
-    <div class="section">
-      <div class="section-title">What We're Looking For</div>
-      <div class="section-line"></div>
-      <div class="cards">
-        <div class="card">
-          <div class="card-icon">🗣️</div>
-          <h3>Communication Skills</h3>
-          <p>Clear, professional, and precise communication is non-negotiable. You will relay critical information under stress where clarity can mean the difference between life and death.</p>
-        </div>
-        <div class="card accent">
-          <div class="card-icon">⚡</div>
-          <h3>Multitasking Ability</h3>
-          <p>Handling multiple simultaneous calls, tracking officer positions, and coordinating responses — all at once. You must thrive in fast-paced, high-demand environments.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🧠</div>
-          <h3>Problem Solving</h3>
-          <p>Strong problem-solving and decision-making abilities are crucial. You'll assess situations rapidly and direct resources to where they're needed most.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🤝</div>
-          <h3>Teamwork & Community</h3>
-          <p>A deep commitment to teamwork and community safety. The communications center never sleeps — cohesion within the team is everything.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY COMMS -->
-  <section style="background:var(--navy);padding:64px 24px;">
-    <div style="max-width:860px;margin:0 auto;text-align:center;">
-      <div style="font-size:11px;font-weight:700;letter-spacing:0.22em;color:var(--gold);text-transform:uppercase;margin-bottom:12px;">Why Communications?</div>
-      <h2 style="font-family:'Oswald',sans-serif;font-size:clamp(26px,4vw,42px);font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:0.04em;line-height:1.1;margin-bottom:20px;">
-        Be the Voice Behind the Badge
-      </h2>
-      <p style="font-size:16px;color:rgba(255,255,255,0.7);line-height:1.8;max-width:640px;margin:0 auto 36px;">
-        Every call you take, every unit you dispatch, every life you help — it all starts with you. The Communications Division is where split-second decisions happen around the clock, and your skills are what make it possible.
-      </p>
-      <a href="https://discord.gg/8QvbBnqUuB" class="btn" target="_blank">Answer the Call</a>
-    </div>
-  </section>
-
-  <!-- ALSO CONSIDER -->
-  <div class="banner" style="background:var(--navy-dark);">
-    <h2>Also Consider Sworn Officer</h2>
-    <p>If you change your mind, patrol is always an option. Explore both paths before you decide.</p>
-    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://discord.gg/8QvbBnqUuB" class="btn" target="_blank">Apply Now</a>
-      <a href="sworn-officer.html" class="btn outline">Sworn Officer Info</a>
-    </div>
-  </div>
-
-  <footer>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Seal_of_the_Los_Angeles_Police_Department.png" alt="LAPD Seal" />
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="sworn-officer.html">Sworn Officer</a>
-      <a href="communications.html">Communications</a>
-      <a href="training.html">Training</a>
-      <a href="divisions.html">Divisions</a>
-      <a href="https://discord.gg/8QvbBnqUuB" target="_blank">Apply</a>
-    </div>
-    <p>© 2025 Southern California Roleplay · Los Angeles Police Department · All Rights Reserved</p>
-  </footer>
-
+    <footer>
+        <p>&copy; 2026 Los Angeles Police Department. All rights reserved.</p>
+        <p>Dedicated to serving and protecting the communities of Los Angeles.</p>
+    </footer>
 </body>
 </html>
