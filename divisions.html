@@ -1,166 +1,451 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Specialized Divisions – LAPD Recruitment</title>
-  <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/a/aa/Seal_of_the_Los_Angeles_Police_Department.png" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specialized Divisions - LAPD Recruitment</title>
+    <link rel="icon" type="image/png" href="https://imgs.search.brave.com/Uksy3JBQ6Fc6BLzeH83DbgczmPlGqqbIhVcjA9YMeFY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9h/L2FhL1NlYWxfb2Zf/dGhlX0xvc19Bbmdl/bGVzX1BvbGljZV9E/ZXBhcnRtZW50LnBu/Zw">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #003366 0%, #004d99 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        .apply-btn {
+            background-color: #dc3545 !important;
+            padding: 10px 20px !important;
+            border-radius: 5px !important;
+        }
+
+        .apply-btn:hover {
+            background-color: #c82333 !important;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #663399 0%, #884caf 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .intro {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 60px;
+            text-align: center;
+            border-left: 5px solid #663399;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #003366;
+            margin-bottom: 50px;
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #663399;
+        }
+
+        .divisions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .division-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .division-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .division-header {
+            padding: 30px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .division-card:nth-child(1) .division-header {
+            background: linear-gradient(135deg, #c41e3a 0%, #8b1628 100%);
+        }
+
+        .division-card:nth-child(2) .division-header {
+            background: linear-gradient(135deg, #003f87 0%, #002d5f 100%);
+        }
+
+        .division-card:nth-child(3) .division-header {
+            background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+        }
+
+        .division-card:nth-child(4) .division-header {
+            background: linear-gradient(135deg, #1a5c33 0%, #0d3d1a 100%);
+        }
+
+        .division-card:nth-child(5) .division-header {
+            background: linear-gradient(135deg, #663399 0%, #4a2470 100%);
+        }
+
+        .division-card:nth-child(6) .division-header {
+            background: linear-gradient(135deg, #222 0%, #000 100%);
+        }
+
+        .division-card:nth-child(7) .division-header {
+            background: linear-gradient(135deg, #ff6b35 0%, #cc5429 100%);
+        }
+
+        .division-header h3 {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .division-icon {
+            font-size: 2rem;
+        }
+
+        .division-body {
+            padding: 25px;
+        }
+
+        .division-body p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .division-body .read-more {
+            color: #663399;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .division-body .read-more:hover {
+            color: #884caf;
+            text-decoration: underline;
+        }
+
+        .divisions-info {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 50px 40px;
+            border-radius: 10px;
+            margin-bottom: 60px;
+        }
+
+        .divisions-info h2 {
+            color: #003366;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .divisions-info p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .divisions-info ul {
+            margin-left: 25px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .divisions-info li {
+            margin-bottom: 10px;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #663399 0%, #884caf 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background-color: #663399;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #4a2470;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102,51,153,0.3);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: #663399;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f0f0f0;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .divisions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <div class="badge-strip">
-    <p>🚔 Southern California Roleplay — Los Angeles Police Department Recruitment</p>
-  </div>
-
-  <nav>
-    <div class="nav-inner">
-      <a class="nav-brand" href="index.html">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Seal_of_the_Los_Angeles_Police_Department.png" alt="LAPD Seal" />
-        <div class="nav-brand-text">
-          <span class="dept">LAPD</span>
-          <span class="sub">Recruitment Portal</span>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://imgs.search.brave.com/Uksy3JBQ6Fc6BLzeH83DbgczmPlGqqbIhVcjA9YMeFY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9h/L2FhL1NlYWxfb2Zf/dGhlX0xvc19Bbmdl/bGVzX1BvbGljZV9E/ZXBhcnRtZW50LnBu/Zw" alt="LAPD Seal">
+                <span>LAPD</span>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="sworn-officer.html">Sworn Officer</a>
+                <a href="communications.html">Communications</a>
+                <a href="training.html">Training Process</a>
+                <a href="divisions.html">Divisions</a>
+                <a href="https://discord.gg/8QvbBnqUuB" class="apply-btn" target="_blank">Apply Now</a>
+            </nav>
         </div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="sworn-officer.html">Sworn Officer</a></li>
-        <li><a href="communications.html">Communications</a></li>
-        <li><a href="training.html">Training</a></li>
-        <li><a href="divisions.html" class="active">Divisions</a></li>
-        <li><a href="https://discord.gg/8QvbBnqUuB" target="_blank">Apply</a></li>
-      </ul>
+    </header>
+
+    <section class="hero">
+        <h1>Specialized Divisions</h1>
+        <p>Explore Career Opportunities Beyond Patrol</p>
+    </section>
+
+    <div class="content">
+        <div class="intro">
+            <p>The Los Angeles Police Department offers diverse career paths in specialized divisions. As you progress through your patrol officer career, you'll have the opportunity to apply for positions in elite units that match your skills, interests, and expertise. Discover where your talents can make the greatest impact.</p>
+        </div>
+
+        <h2 class="section-title">Our Specialized Divisions</h2>
+
+        <div class="divisions-grid">
+            <div class="division-card">
+                <div class="division-header">
+                    <h3><span class="division-icon">🔍</span>Detective Services Bureau</h3>
+                </div>
+                <div class="division-body">
+                    <p>Investigate major crimes and complex cases. Work as a detective solving homicides, robberies, assaults, and other serious felonies. This division requires advanced investigation skills and a keen eye for detail.</p>
+                </div>
+            </div>
+
+            <div class="division-card">
+                <div class="division-header">
+                    <h3><span class="division-icon">✈️</span>Air Support Division</h3>
+                </div>
+                <div class="division-body">
+                    <p>Provide aerial reconnaissance and surveillance support to ground operations. Pilots and crew members conduct helicopter operations, aerial pursuits, and reconnaissance missions across Los Angeles.</p>
+                </div>
+            </div>
+
+            <div class="division-card">
+                <div class="division-header">
+                    <h3><span class="division-icon">📞</span>Communications Division</h3>
+                </div>
+                <div class="division-body">
+                    <p>Serve as the backbone of LAPD operations by managing emergency dispatch services. Coordinate responses, process emergency calls, and keep officers informed in the field.</p>
+                </div>
+            </div>
+
+            <div class="division-card">
+                <div class="division-header">
+                    <h3><span class="division-icon">🛡️</span>Gang Enforcement Detail</h3>
+                </div>
+                <div class="division-body">
+                    <p>Combat gang violence and suppress gang activity across Los Angeles. Work in specialized units focused on reducing gang-related crimes and maintaining community safety.</p>
+                </div>
+            </div>
+
+            <div class="division-card">
+                <div class="division-header">
+                    <h3><span class="division-icon">⚠️</span>Gang & Narcotics Division</h3>
+                </div>
+                <div class="division-body">
+                    <p>Investigate narcotics crimes and organized crime operations. Conduct undercover operations, drug interdiction, and investigations into criminal enterprises affecting Los Angeles.</p>
+                </div>
+            </div>
+
+            <div class="division-card">
+                <div class="division-header">
+                    <h3><span class="division-icon">⚡</span>Metro Division</h3>
+                </div>
+                <div class="division-body">
+                    <p>Provide specialized tactical support for high-risk operations. Metro units respond to armed robberies, hostage situations, warrant service, and other critical incidents requiring tactical expertise.</p>
+                </div>
+            </div>
+
+            <div class="division-card">
+                <div class="division-header">
+                    <h3><span class="division-icon">🚓</span>Traffic Division</h3>
+                </div>
+                <div class="division-body">
+                    <p>Enforce traffic laws and promote roadway safety throughout Los Angeles. Manage traffic collisions, DUI enforcement, and traffic safety initiatives that protect our communities.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divisions-info">
+            <h2>🎯 Your Path to Specialization</h2>
+            <p>Advancement into specialized divisions typically requires:</p>
+            <ul>
+                <li><strong>Patrol Experience:</strong> Most specialized units require officers to serve at least 1-3 years as a patrol officer first</li>
+                <li><strong>Proven Performance:</strong> Demonstrate exceptional skills, reliability, and judgment in your current assignment</li>
+                <li><strong>Application Process:</strong> Submit applications during open recruitment periods for your chosen division</li>
+                <li><strong>Specialized Training:</strong> Complete required training and certification programs for your selected division</li>
+                <li><strong>Continued Professional Development:</strong> Pursue additional certifications and training to advance within your division</li>
+            </ul>
+            <p style="margin-top: 25px; font-weight: 600; color: #003366;">The LAPD is committed to recognizing talent and providing opportunities for officers to develop expertise in areas matching their strengths and interests. Your dedication and performance as a patrol officer can open doors to some of the most rewarding specialized assignments in law enforcement.</p>
+        </div>
+
+        <section class="cta-section">
+            <h2>Start Your LAPD Career Today</h2>
+            <p>Begin as a patrol officer and work your way toward the specialized division of your dreams. Your future in law enforcement starts now.</p>
+            <a href="https://discord.gg/8QvbBnqUuB" class="btn btn-secondary" target="_blank">Apply Now</a>
+        </section>
     </div>
-  </nav>
 
-  <div class="page-header">
-    <div class="eyebrow">LAPD Structure</div>
-    <h1>Specialized Divisions</h1>
-  </div>
-
-  <!-- INTRO -->
-  <section style="background:var(--white);padding:0;">
-    <div class="section">
-      <div class="section-title">Find Your Unit</div>
-      <div class="section-line"></div>
-      <p style="font-size:16px;line-height:1.8;color:var(--text-muted);max-width:720px;margin-bottom:48px;">
-        The LAPD is made up of many specialized divisions, each playing a distinct and vital role in keeping Los Angeles safe. After completing your training and gaining patrol experience, you may be eligible to apply for placement in one of the units below.
-      </p>
-
-      <div class="divisions-grid">
-
-        <div class="division-card">
-          <div class="division-icon">🔍</div>
-          <div>
-            <h3>Detective Services Bureau</h3>
-            <p>Handle major crime investigations across Los Angeles. Detectives gather evidence, conduct interviews, and build cases that bring criminals to justice.</p>
-          </div>
-        </div>
-
-        <div class="division-card">
-          <div class="division-icon">🚁</div>
-          <div>
-            <h3>Air Support Division</h3>
-            <p>Provide aerial support and surveillance from above the city. Air Support assists ground units with tracking suspects, monitoring scenes, and rapid area coverage.</p>
-          </div>
-        </div>
-
-        <div class="division-card">
-          <div class="division-icon">📡</div>
-          <div>
-            <h3>Communications Division</h3>
-            <p>Operate the city's emergency dispatch services. Dispatchers are the critical link between the public and officers in the field, managing calls and coordinating response 24/7.</p>
-          </div>
-        </div>
-
-        <div class="division-card">
-          <div class="division-icon">🛡️</div>
-          <div>
-            <h3>Gang Enforcement Detail</h3>
-            <p>Conduct targeted gang suppression operations across Los Angeles. This unit works to disrupt criminal street gang activity and reduce violent crime in affected communities.</p>
-          </div>
-        </div>
-
-        <div class="division-card">
-          <div class="division-icon">🧪</div>
-          <div>
-            <h3>Gang & Narcotics Division</h3>
-            <p>Investigate narcotics trafficking and organized crime networks. GND works closely with federal partners to dismantle drug organizations operating in and around Los Angeles.</p>
-          </div>
-        </div>
-
-        <div class="division-card">
-          <div class="division-icon">⚔️</div>
-          <div>
-            <h3>Metro Division</h3>
-            <p>Provide specialized tactical support to patrol operations across the city. Metro includes SWAT capabilities and responds to the most high-risk and complex situations.</p>
-          </div>
-        </div>
-
-        <div class="division-card">
-          <div class="division-icon">🚦</div>
-          <div>
-            <h3>Traffic Division</h3>
-            <p>Enforce roadway safety and traffic laws across Los Angeles. Traffic officers investigate collisions, manage DUI enforcement, and keep the city's roads moving safely.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW TO JOIN A DIVISION -->
-  <section style="background:var(--off-white);padding:0;">
-    <div class="section">
-      <div class="section-title">How to Join a Division</div>
-      <div class="section-line"></div>
-      <div class="two-col">
-        <div>
-          <p style="font-size:16px;line-height:1.8;color:var(--text-muted);margin-bottom:20px;">
-            Specialized divisions are not entry-level positions. To be considered, you must first complete the full training process — including the academy, both ride-alongs, and your final evaluation.
-          </p>
-          <p style="font-size:16px;line-height:1.8;color:var(--text-muted);">
-            Once you've earned your Solo Patrol clearance and been promoted to Patrol Officer II, you may express interest in a specialized unit. Division placement is based on performance, department need, and your Training Officer's recommendation.
-          </p>
-          <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;">
-            <a href="training.html" class="btn">View Training Process</a>
-            <a href="https://discord.gg/8QvbBnqUuB" class="btn outline" target="_blank">Apply Now</a>
-          </div>
-        </div>
-        <div class="info-box">
-          <h3>Eligibility Requirements</h3>
-          <ul>
-            <li>Completed academy examination</li>
-            <li>Passed both supervised ride-alongs</li>
-            <li>Passed final evaluation</li>
-            <li>Cleared for solo patrol</li>
-            <li>Promoted to Patrol Officer II or above</li>
-            <li>Positive recommendation from Training Officer</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <div class="banner">
-    <h2>Which Division Is Calling You?</h2>
-    <p>Start your journey today. Complete the training process and earn your place in a specialized unit.</p>
-    <a href="https://discord.gg/8QvbBnqUuB" class="btn" target="_blank">Apply on Discord</a>
-  </div>
-
-  <footer>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Seal_of_the_Los_Angeles_Police_Department.png" alt="LAPD Seal" />
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="sworn-officer.html">Sworn Officer</a>
-      <a href="communications.html">Communications</a>
-      <a href="training.html">Training</a>
-      <a href="divisions.html">Divisions</a>
-      <a href="https://discord.gg/8QvbBnqUuB" target="_blank">Apply</a>
-    </div>
-    <p>© 2025 Southern California Roleplay · Los Angeles Police Department · All Rights Reserved</p>
-  </footer>
-
+    <footer>
+        <p>&copy; 2026 Los Angeles Police Department. All rights reserved.</p>
+        <p>Dedicated to serving and protecting the communities of Los Angeles.</p>
+    </footer>
 </body>
 </html>
