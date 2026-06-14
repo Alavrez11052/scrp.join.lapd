@@ -1,182 +1,414 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Training Process – LAPD Recruitment</title>
-  <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/a/aa/Seal_of_the_Los_Angeles_Police_Department.png" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Process - LAPD Recruitment</title>
+    <link rel="icon" type="image/png" href="https://imgs.search.brave.com/Uksy3JBQ6Fc6BLzeH83DbgczmPlGqqbIhVcjA9YMeFY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9h/L2FhL1NlYWxfb2Zf/dGhlX0xvc19Bbmdl/bGVzX1BvbGljZV9E/ZXBhcnRtZW50LnBu/Zw">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #003366 0%, #004d99 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        .apply-btn {
+            background-color: #dc3545 !important;
+            padding: 10px 20px !important;
+            border-radius: 5px !important;
+        }
+
+        .apply-btn:hover {
+            background-color: #c82333 !important;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a5c33 0%, #2d8659 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .intro {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+            border-left: 5px solid #2d8659;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #003366;
+            margin-bottom: 40px;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #2d8659;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #2d8659 0%, #1a5c33 100%);
+        }
+
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 0;
+            margin-right: auto;
+            padding-right: 50px;
+            text-align: right;
+            width: calc(50% - 25px);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+            margin-right: 0;
+            padding-left: 50px;
+            text-align: left;
+            width: calc(50% - 25px);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: white;
+            border: 4px solid #2d8659;
+            border-radius: 50%;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #2d8659;
+            font-size: 1.1rem;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+        }
+
+        .timeline-content h3 {
+            color: #003366;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .timeline-content p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 40px 0;
+            border-left: 5px solid #2d8659;
+        }
+
+        .highlight h3 {
+            color: #1a5c33;
+            margin-bottom: 15px;
+        }
+
+        .highlight p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #2d8659 0%, #1a5c33 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background-color: #2d8659;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #1a5c33;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(45,134,89,0.3);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: #2d8659;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f0f0f0;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 0;
+                margin-right: 0;
+                padding-left: 70px;
+                text-align: left;
+                width: 100%;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <div class="badge-strip">
-    <p>🚔 Southern California Roleplay — Los Angeles Police Department Recruitment</p>
-  </div>
-
-  <nav>
-    <div class="nav-inner">
-      <a class="nav-brand" href="index.html">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Seal_of_the_Los_Angeles_Police_Department.png" alt="LAPD Seal" />
-        <div class="nav-brand-text">
-          <span class="dept">LAPD</span>
-          <span class="sub">Recruitment Portal</span>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://imgs.search.brave.com/Uksy3JBQ6Fc6BLzeH83DbgczmPlGqqbIhVcjA9YMeFY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9h/L2FhL1NlYWxfb2Zf/dGhlX0xvc19Bbmdl/bGVzX1BvbGljZV9E/ZXBhcnRtZW50LnBu/Zw" alt="LAPD Seal">
+                <span>LAPD</span>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="sworn-officer.html">Sworn Officer</a>
+                <a href="communications.html">Communications</a>
+                <a href="training.html">Training Process</a>
+                <a href="divisions.html">Divisions</a>
+                <a href="https://discord.gg/8QvbBnqUuB" class="apply-btn" target="_blank">Apply Now</a>
+            </nav>
         </div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="sworn-officer.html">Sworn Officer</a></li>
-        <li><a href="communications.html">Communications</a></li>
-        <li><a href="training.html" class="active">Training</a></li>
-        <li><a href="divisions.html">Divisions</a></li>
-        <li><a href="https://discord.gg/8QvbBnqUuB" target="_blank">Apply</a></li>
-      </ul>
+    </header>
+
+    <section class="hero">
+        <h1>Training Process</h1>
+        <p>Your Path to Becoming an LAPD Patrol Officer</p>
+    </section>
+
+    <div class="content">
+        <div class="intro">
+            <p>Every LAPD officer undergoes a comprehensive and rigorous training process to ensure they're prepared for the challenges of law enforcement. This journey transforms recruits into competent, confident patrol officers ready to serve Los Angeles. Below is the training pathway you'll follow on your way to becoming a solo patrol officer.</p>
+        </div>
+
+        <h2 class="section-title">Your Training Journey</h2>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot">1</div>
+                <div class="timeline-content">
+                    <h3>Academy Exam</h3>
+                    <p>The first crucial step in your LAPD career begins with passing the academy examination. This comprehensive exam tests your knowledge, physical fitness, and readiness for law enforcement training. Success here demonstrates your commitment and preparation for the rigorous training ahead.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot">2</div>
+                <div class="timeline-content">
+                    <h3>RA I - First Supervised Ride Along</h3>
+                    <p>Your first ride along with a Training Officer is your introduction to real patrol work. You'll be expected to wear the correct uniform, carry proper gear, and demonstrate readiness. This ride along allows the Training Bureau to assess your foundational patrol skills and identify areas for improvement.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot">3</div>
+                <div class="timeline-content">
+                    <h3>RA II - Second Supervised Ride Along</h3>
+                    <p>During your second ride along, expectations rise. You'll be expected to demonstrate increased confidence, better preparation, and the ability to handle unexpected situations. This is where you prove you've learned from RA I and are progressing toward solo patrol readiness.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot">4</div>
+                <div class="timeline-content">
+                    <h3>Final Evaluation</h3>
+                    <p>This is your moment to shine. During the final evaluation, your Training Officer will step back and let you take charge. They expect you to demonstrate solid knowledge of procedures, show good judgment, and handle situations independently. The Training Officer will only intervene if absolutely necessary.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot">5</div>
+                <div class="timeline-content">
+                    <h3>Pass Evaluation</h3>
+                    <p>Congratulations! After passing your final evaluation, you're cleared to patrol as a Solo Patrol Officer. You'll still be required to wear the Class A uniform while you're under reduced supervision. This is the beginning of your career as an independent patrol officer.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot">6</div>
+                <div class="timeline-content">
+                    <h3>Promote to Patrol Officer II</h3>
+                    <p>After passing your evaluation and serving your time as a Solo Patrol Officer, you'll be eligible for promotion. When the next promotion cycle arrives, you can advance to Patrol Officer II, opening the door to further specialization and career advancement within the LAPD.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <h3>💡 Key Success Tips</h3>
+            <p>Pay close attention during your academy training. Show up prepared for each ride along with the proper uniform and equipment. Be ready to learn from your Training Officer's feedback. Demonstrate confidence, sound judgment, and a commitment to community safety. Most importantly, remain dedicated to upholding the values of integrity, professionalism, and service that define the LAPD.</p>
+        </div>
+
+        <section class="cta-section">
+            <h2>Ready to Start Your Journey?</h2>
+            <p>Begin your training pathway today and become an LAPD Patrol Officer. The Los Angeles Police Department is ready to invest in your future.</p>
+            <a href="https://discord.gg/8QvbBnqUuB" class="btn btn-secondary" target="_blank">Apply Now</a>
+        </section>
     </div>
-  </nav>
 
-  <div class="page-header">
-    <div class="eyebrow">Training Bureau</div>
-    <h1>Training Process</h1>
-  </div>
-
-  <section style="background:var(--white);padding:0;">
-    <div class="section">
-      <div class="two-col" style="gap:64px;">
-
-        <!-- STEPS -->
-        <div>
-          <div class="section-title">Your Path to the Badge</div>
-          <div class="section-line"></div>
-          <div class="steps">
-
-            <div class="step">
-              <div class="step-num">1</div>
-              <div class="step-body">
-                <h3>Academy Exam</h3>
-                <p>Pass the academy examination. This is your first and most fundamental milestone — demonstrating the baseline knowledge and commitment required of every LAPD officer.</p>
-              </div>
-            </div>
-
-            <div class="step">
-              <div class="step-num">2</div>
-              <div class="step-body">
-                <h3>Ride-Along I</h3>
-                <p>Your first supervised ride-along. During this ride-along you will be expected to have on the correct uniform, have the correct gear, and be prepared. This ride-along is generally a way for the Training Bureau to see where you stand as a Patrol Officer and what you need to improve on.</p>
-              </div>
-            </div>
-
-            <div class="step">
-              <div class="step-num">3</div>
-              <div class="step-body">
-                <h3>Ride-Along II</h3>
-                <p>Your second supervised ride-along. During your second ride-along you will be expected to be more confident, prepared, and ready for anything thrown your way. Growth from RA I is expected and evaluated.</p>
-              </div>
-            </div>
-
-            <div class="step">
-              <div class="step-num">4</div>
-              <div class="step-body">
-                <h3>Final Evaluation</h3>
-                <p>During your evaluation your Training Officer will put you in charge of everything. They will expect you to have a good knowledge of what's happening, how to do things, and they should only ever step in when absolutely necessary.</p>
-              </div>
-            </div>
-
-            <div class="step">
-              <div class="step-num">5</div>
-              <div class="step-body">
-                <h3>Solo Patrol Clearance</h3>
-                <p>After passing your Final Evaluation you will be allowed to patrol as a Solo Patrol Officer. You will still be required to wear the Class A uniform, though you'll be under less supervision.</p>
-              </div>
-            </div>
-
-            <div class="step">
-              <div class="step-num">6</div>
-              <div class="step-body">
-                <h3>Promote to Patrol Officer II</h3>
-                <p>After passing your evaluation you must wait for the next promotion cycle to be promoted to Patrol Officer II — the first major rank advancement in your LAPD career.</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- SIDEBAR -->
-        <div style="display:flex;flex-direction:column;gap:20px;">
-          <div class="info-box">
-            <h3>Training Tips</h3>
-            <ul>
-              <li>Always arrive in correct uniform and gear — first impressions matter</li>
-              <li>Study department procedures and call codes before each ride-along</li>
-              <li>Communicate clearly and professionally at all times</li>
-              <li>Ask questions — training officers expect initiative</li>
-              <li>Be prepared for anything during your final evaluation</li>
-            </ul>
-          </div>
-
-          <div style="background:var(--gold);padding:28px;border-radius:2px;">
-            <p style="font-family:'Oswald',sans-serif;font-size:16px;font-weight:700;color:var(--navy-dark);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">Ready to Begin?</p>
-            <p style="font-size:14px;color:var(--navy);line-height:1.6;margin-bottom:16px;">The academy is the gateway to everything. Apply today and start your journey toward earning the badge.</p>
-            <a href="https://discord.gg/8QvbBnqUuB" target="_blank" style="display:inline-block;padding:10px 22px;background:var(--navy-dark);color:var(--gold);font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;">Apply on Discord</a>
-          </div>
-
-          <div style="background:var(--off-white);border:1px solid var(--light-gray);border-left:4px solid var(--navy);padding:22px 24px;border-radius:2px;">
-            <p style="font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;color:var(--navy);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">Training Bureau</p>
-            <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;">All training is overseen by the LAPD Training Bureau. Your assigned Training Officer will guide and evaluate you throughout the entire process. Their decision on evaluation is final.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PROMOTION PATHWAY STRIP -->
-  <section style="background:var(--navy);padding:48px 24px;">
-    <div style="max-width:1000px;margin:0 auto;">
-      <div style="text-align:center;margin-bottom:32px;">
-        <div style="font-size:11px;font-weight:700;letter-spacing:0.22em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;">Rank Progression</div>
-        <h2 style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:0.04em;">From Recruit to Officer</h2>
-      </div>
-      <div style="display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;">
-        <div style="text-align:center;padding:16px 20px;">
-          <div style="font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.06em;">Recruit</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">Academy</div>
-        </div>
-        <div style="color:var(--gold);font-size:20px;padding:0 4px;">›</div>
-        <div style="text-align:center;padding:16px 20px;">
-          <div style="font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.06em;">Probationary</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">RA I & II</div>
-        </div>
-        <div style="color:var(--gold);font-size:20px;padding:0 4px;">›</div>
-        <div style="text-align:center;padding:16px 20px;">
-          <div style="font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.06em;">Solo Patrol</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">Post-Evaluation</div>
-        </div>
-        <div style="color:var(--gold);font-size:20px;padding:0 4px;">›</div>
-        <div style="text-align:center;padding:16px 20px;background:rgba(200,169,81,0.12);border:1px solid rgba(200,169,81,0.3);border-radius:2px;">
-          <div style="font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.06em;">Patrol Officer II</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">Promotion Cycle</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="banner">
-    <h2>Start Your Academy Today</h2>
-    <p>The first step is applying. Join our Discord and begin your LAPD journey.</p>
-    <a href="https://discord.gg/8QvbBnqUuB" class="btn" target="_blank">Apply on Discord</a>
-  </div>
-
-  <footer>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Seal_of_the_Los_Angeles_Police_Department.png" alt="LAPD Seal" />
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="sworn-officer.html">Sworn Officer</a>
-      <a href="communications.html">Communications</a>
-      <a href="training.html">Training</a>
-      <a href="divisions.html">Divisions</a>
-      <a href="https://discord.gg/8QvbBnqUuB" target="_blank">Apply</a>
-    </div>
-    <p>© 2025 Southern California Roleplay · Los Angeles Police Department · All Rights Reserved</p>
-  </footer>
-
+    <footer>
+        <p>&copy; 2026 Los Angeles Police Department. All rights reserved.</p>
+        <p>Dedicated to serving and protecting the communities of Los Angeles.</p>
+    </footer>
 </body>
 </html>
