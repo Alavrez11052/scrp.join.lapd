@@ -1,0 +1,61 @@
+name: Discord Embed Notifications
+
+on:
+  push:
+  pull_request:
+  create:
+  delete:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send Discord Embed
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          PAYLOAD=$(cat <<EOF
+{
+  "embeds": [
+    {
+      "title": "📦 GitHub Repository Update",
+      "color": 3447003,
+      "fields": [
+        {
+          "name": "Repository",
+          "value": "${{ github.repository }}",
+          "inline": true
+        },
+        {
+          "name": "Event",
+          "value": "${{ github.event_name }}",
+          "inline": true
+        },
+        {
+          "name": "Branch / Ref",
+          "value": "${{ github.ref }}",
+          "inline": true
+        },
+        {
+          "name": "User",
+          "value": "${{ github.actor }}",
+          "inline": true
+        }
+      ],
+      "description": "A new change was detected in the repository.",
+      "url": "https://github.com/${{ github.repository }}",
+      "footer": {
+        "text": "GitHub → Discord Webhook"
+      },
+      "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+    }
+  ]
+}
+EOF
+)
+
+          curl -H "Content-Type: application/json" \
+          -X POST \
+          -d "$PAYLOAD" \
+          $DISCORD_WEBHOOK
